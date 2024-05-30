@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shopdb
+    username: root
+    password: 123456
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.example.springboot1215.pojo,com.example.springboot1215.bg.pojo
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/bg/*.xml
+server:
+  port: 8088

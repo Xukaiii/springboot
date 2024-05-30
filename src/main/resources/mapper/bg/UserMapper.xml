@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot1215.bg.mapper.UserMapper">
+    <insert id="reg" parameterType="User">
+        insert into t_user(user_name,user_password,user_phone,user_status,user_type)
+        value (#{userName},#{userPassword},#{userPhone},#{userStatus},#{userType})
+    </insert>
+    <select id="queryUserByName" resultType="int">
+        select count(1) from t_user where user_name=#{name}
+    </select>
+    <select id="queryUserByPhone" resultType="int">
+        select count(1) from t_user where user_phone=#{phone}
+    </select>
+</mapper>

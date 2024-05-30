@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot1215.bg.mapper.ProductMapper">
+    <resultMap id="productMap" type="Product">
+        <id property="id" column="id"/>
+        <result property="productName" column="product_name"/>
+        <result property="generalPrice" column="general_price"/>
+        <result property="superPrice" column="super_price"/>
+        <result property="stock" column="stock"/>
+        <result property="costPrice" column="cost_price"/>
+        <result property="productDescription" column="product_description"/>
+        <result property="productPath" column="product_path"/>
+    </resultMap>
+    <insert id="save" parameterType="Product">
+        insert into t_product(product_name,product_description,general_price,super_price,cost_price,stock,product_path,category_id)
+        values(#{productName},#{productDescription},#{generalPrice},#{superPrice},#{costPrice},#{stock},#{productPath},#{categoryId})
+    </insert>
+    <select id="queryAll" resultMap="productMap">
+        select * from t_product
+    </select>
+</mapper>
